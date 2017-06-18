@@ -40,7 +40,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>My Todo List</h2>
+          <h2>My Todo List ({`${this.state.items.length}`})</h2>
         </div>
         <div className="todo-list">
           <TodoForm addTodo={this.addTodo} />
