@@ -4,16 +4,36 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      items: []
+    };
+  }
+
+  addTodo = (text) => {
+    var todo = {
+      text: text,
+      id: Date.now()
+    };
+
+    //const items = this.state.items.push(todo);
+    const items = [
+      ...this.state.items,
+      todo
+    ];
+
+    this.setState({items: items});
   }
 
   render() {
+    console.log("Todo Items: ", this.state.items);
+
     return (
       <div className="App">
         <div className="App-header">
           <h2>My Todo List</h2>
         </div>
         <div className="todo-list">
-          <TodoForm/>
+          <TodoForm addTodo={this.addTodo} />
         </div>
       </div>
     );
@@ -29,14 +49,13 @@ class TodoForm extends React.Component {
   }
 
   handleChange = (e) => {
-    console.log("Text Change: " + e.target.value);
     this.setState({text: e.target.value});
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Submit: " + this.state.text);
+    this.props.addTodo(this.state.text);
     this.setState({text: ''});
   }
 
