@@ -34,6 +34,7 @@ class App extends Component {
         </div>
         <div className="todo-list">
           <TodoForm addTodo={this.addTodo} />
+          <TodoList items={this.state.items}/>
         </div>
       </div>
     );
@@ -65,6 +66,18 @@ class TodoForm extends React.Component {
         <input onChange={this.handleChange} value={this.state.text}/>
         <button>Add</button>
       </form>
+    );
+  }
+}
+
+class TodoList extends React.Component {
+  render() {
+    return (
+      <ul>
+        {this.props.items.map(item => (
+          <li key={item.id}>{item.text}</li>
+        ))}
+      </ul>
     );
   }
 }
