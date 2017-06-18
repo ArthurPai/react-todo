@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
+import TodoItem from './TodoItem';
 
 const TodoList = ({items}) => (
   <ul>
     {items.map(item => (
-      <li key={item.id}>{item.text}</li>
+      <TodoItem key={item.id} item={item} />
     ))}
   </ul>
 )
