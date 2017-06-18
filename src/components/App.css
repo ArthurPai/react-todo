@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
 }
 
 .App-logo {
@@ -8,6 +7,7 @@
 }
 
 .App-header {
+  text-align: center;
   background-color: #222;
   padding: 5px;
   color: white;
@@ -15,6 +15,20 @@
 
 .App-intro {
   font-size: large;
+}
+
+.todo-list {
+  width: 300px;
+  margin: auto;
+}
+
+.todo-list form {
+  text-align: center;
+}
+
+.todo-list form button {
+  margin-left: 10px;
+  width: 80px;
 }
 
 @keyframes App-logo-spin {
