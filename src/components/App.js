@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import TodoForm from './TodoForm';
+import TodoList from './TodoList';
 import './App.css';
 
 class App extends Component {
@@ -37,50 +39,6 @@ class App extends Component {
           <TodoList items={this.state.items}/>
         </div>
       </div>
-    );
-  }
-}
-
-class TodoForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: ''
-    };
-  }
-
-  handleChange = (e) => {
-    this.setState({text: e.target.value});
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (this.state.text === '')
-      return;
-
-    this.props.addTodo(this.state.text);
-    this.setState({text: ''});
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input onChange={this.handleChange} value={this.state.text}/>
-        <button>Add</button>
-      </form>
-    );
-  }
-}
-
-class TodoList extends React.Component {
-  render() {
-    return (
-      <ul>
-        {this.props.items.map(item => (
-          <li key={item.id}>{item.text}</li>
-        ))}
-      </ul>
     );
   }
 }
