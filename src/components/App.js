@@ -26,6 +26,14 @@ class App extends Component {
     this.setState({items: items});
   }
 
+  removeTodo = (id) => {
+    // Filter all todos except the one to be removed
+    const items = this.state.items.filter((item) => item.id !== id);
+
+    // Update state with filter
+    this.setState({items: items});
+  }
+
   render() {
     console.log("Todo Items: ", this.state.items);
 
@@ -36,7 +44,7 @@ class App extends Component {
         </div>
         <div className="todo-list">
           <TodoForm addTodo={this.addTodo} />
-          <TodoList items={this.state.items}/>
+          <TodoList items={this.state.items} remove={this.removeTodo} />
         </div>
       </div>
     );
